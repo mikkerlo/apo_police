@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+import logging
 
 
 def read_from_file(filename):
@@ -31,3 +32,7 @@ def iload_json(buff, decoder=None, _w=json.decoder.WHITESPACE.match):
             idx = _w(buff, idx).end()
     except ValueError as exc:
         raise ValueError('%s (%r at position %d).' % (exc, buff[idx:], idx))
+
+
+def setup_logging(level):
+    logging.basicConfig(level=level)
